@@ -97,11 +97,11 @@ class App extends Component {
   _renderItem = ({item, index}) => {
     console.log('Item: ', item, item.url_n);
     return (
-      <View key={index} style={{height: 48, width: 48}}>
+      <View key={index} style={{height: 72, width: 72, margin: 10}}>
         <Image
           source={{uri: item.url_n}}
           resizeMode="contain"
-          style={{height: 48, width: 48}}
+          style={{height: 72, width: 72}}
         />
       </View>
     );

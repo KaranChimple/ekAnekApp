@@ -14,11 +14,14 @@ const initialState = {
 const photosReducer = (state = initialState, action) => {
   switch (action.type) {
     case REHYDRATE:
+      if (!action.payload) {
+        return {...state};
+      }
       return {
         ...state,
         isLoading: false,
         error: false,
-        data: action.payload.photos.data,
+        data: action.payload.photos.data ? action.payload.photos.data : [],
       };
     case GET_PHOTOS_LOADING:
       return {...state, isLoading: true};

@@ -96,12 +96,36 @@ class App extends Component {
 
   _renderItem = ({item, index}) => {
     console.log('Item: ', item, item.url_n);
+    const {gridFormat} = this.state;
+    const {photos} = this.props;
+    if (photos.isLoading) {
+      return (
+        <ActivityIndicator
+          size={gridFormat === 2 ? 48 : gridFormat === 3 ? 36 : 24}
+          style={styles.loaderStyle}
+        />
+      );
+    }
     return (
-      <View key={index} style={{height: 72, width: 72, margin: 10}}>
+      <View
+        key={index}
+        style={
+          gridFormat === 2
+            ? styles.imageInGrid2
+            : gridFormat === 3
+            ? styles.imageInGrid3
+            : styles.imageInGrid4
+        }>
         <Image
           source={{uri: item.url_n}}
           resizeMode="contain"
-          style={{height: 72, width: 72}}
+          style={
+            gridFormat === 2
+              ? styles.imageInGrid2
+              : gridFormat === 3
+              ? styles.imageInGrid3
+              : styles.imageInGrid4
+          }
         />
       </View>
     );
@@ -167,6 +191,21 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     width: '100%',
+  },
+  imageInGrid2: {
+    height: 180,
+    width: 180,
+    margin: 10,
+  },
+  imageInGrid3: {
+    height: 115,
+    width: 115,
+    margin: 10,
+  },
+  imageInGrid4: {
+    height: 80,
+    width: 80,
+    margin: 10,
   },
   loaderStyle: {color: '#000', marginBottom: 20},
 });

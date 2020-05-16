@@ -1,4 +1,4 @@
-import { REHYDRATE } from 'redux-persist';
+import {REHYDRATE} from 'redux-persist';
 import {
   GET_PHOTOS_FAILED,
   GET_PHOTOS_SUCCESS,
@@ -12,10 +12,8 @@ const initialState = {
 };
 
 const photosReducer = (state = initialState, action) => {
-  console.log('Place Reducer: ', action);
   switch (action.type) {
     case REHYDRATE:
-      console.log('Action from rehydrate: ', action);
       return {
         ...state,
         isLoading: false,

@@ -8,6 +8,5 @@ const addPlaceSuccess = (placeName) => {
 };
 
 export const addPlace = (placeName) => (dispatch) => {
-  console.log('Value received', placeName);
   dispatch(addPlaceSuccess(placeName));
 };

@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const placeReducer = (state = initialState, action) => {
-  console.log('Place Reducer: ', action);
   switch (action.type) {
     case ADD_PLACE:
       return {

@@ -27,7 +27,6 @@ const getPhotosFailed = (error) => {
 };
 
 export const getPhotos = (searchValue) => async (dispatch) => {
-  console.log('Value received', searchValue);
   dispatch(getPhotosLoading(true));
   try {
     const resp = await axios({
@@ -43,7 +42,6 @@ export const getPhotos = (searchValue) => async (dispatch) => {
         per_page: 30,
       },
     });
-    console.log('resp: ', resp);
     dispatch(getPhotosSuccess(resp.data.photos.photo));
   } catch (error) {
     dispatch(getPhotosFailed(error));

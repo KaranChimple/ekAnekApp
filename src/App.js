@@ -95,7 +95,6 @@ class App extends Component {
   };
 
   _renderItem = ({item, index}) => {
-    console.log('Item: ', item, item.url_n);
     const {gridFormat} = this.state;
     const {photos} = this.props;
     if (photos.isLoading) {
@@ -156,7 +155,6 @@ class App extends Component {
 
   render() {
     const {shouldPickerBeVisible, gridFormat} = this.state;
-    console.log('Photos: ', this.props.photos);
     return (
       <SafeAreaView>
         <View style={styles.container}>
